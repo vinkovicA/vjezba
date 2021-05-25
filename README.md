@@ -1,8 +1,2 @@
 # vjezba
-Test repo for publishing services using Jenkins.
-
-First readme file edit.
-
-Another edit!
-
-Third edit!!!
+Test repo for building and deploying services using Jenkins.
