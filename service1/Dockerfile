@@ -7,6 +7,6 @@ RUN curl -sL https://github.com/openfaas/faas/releases/download/0.9.14/fwatchdog
 ENV fprocess="python3 entrypoint.py"
 COPY entrypoint.py /
 
-EXPOSE 8080
+EXPOSE 9000
 
 CMD ["fwatchdog", "${fprocess}"]

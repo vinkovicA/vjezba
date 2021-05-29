@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+
+kind: Ingress
+
+metadata:
+  name: services-ingress
+  namespace: default
+
+spec:
+  rules:
+    - host: services.com
+
+      http:
+        paths:
+          - path: "/1"
+            backend:
+              service:
+                name: service1
+                port:
+                  number: 3210
+
+          - path: "/2"
+            backend:
+              service:
+                name: service2
+                port:
+                  number: 4321
