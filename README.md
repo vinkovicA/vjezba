@@ -1,16 +1,17 @@
 # vjezba
 
-servisi 
-
-Dockerfile 
+Dockerfiles: 
 
 ENV fprocess changed to python3 
 
 FROM python:latest changed to static tag python3.8-alpine 
 
 Added apk update; apk upgrade; apk add curl for (alpine) 
+
 ---
+
 Created an ingress config file with paths for both servces (services.com /1 /2) (necessary to add an entry to /etc/hosts) 
+
 ---
 Created a Jenkinsfile with the following stages: 
 - Pull service from git on every commit 
