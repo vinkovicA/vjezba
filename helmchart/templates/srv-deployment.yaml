@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: {{ .Values.metadata.name }}
+  labels:
+    app: {{ .Values.metadata.labels.app }}
+
+spec:
+  replicas: {{ .Values.spec.replicas }}
+  
+  selector:
+    matchLabels:
+      app: {{ .Values.spec.selector.matchLabels.app }}
+
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.spec.template.metadata.labels.app }}
+        
+    spec:
+      containers:
+        - name: {{ .Values.spec.templpate.spec.containers.name }}
+          image: {{ .Values.spec.templpate.spec.containers.image }}
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: {{ .Values.spec.templpate.spec.containers.ports.containerPort }}
+
+---
+
+apiVersion: v1
+
+kind: Service
+
+metadata:
+  name: {{ .Values.metadata.name }}
+
+spec:
+  selector:
+    app: {{ .Values.spec.selector.app }}
+
+  ports:
+    - port: {{ .Values.spec.ports.port }}
+      targetPort: {{ .Values.spec.ports.port }}

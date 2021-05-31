@@ -1,0 +1,39 @@
+kind: Deployment
+
+metadata:
+  name: service2-deployment
+  labels:
+    app: service2
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: service2
+
+  template:
+    metadata:
+      labels:
+        app: service2
+
+    spec:
+      containers:
+        - name: vjezba-service2
+          image: vjezba-servis2
+          ports:
+            containerPort: 9090
+
+---
+kind: Service
+
+metadata:
+  name: service2-srv
+
+spec:
+  selector:
+    app: service2
+
+  ports:
+    - port: 4321
+      targetPort: 9090

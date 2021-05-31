@@ -13,6 +13,7 @@ spec:
       http:
         paths:
           - path: "/1"
+            pathType: Prefix
             backend:
               service:
                 name: service1
@@ -20,6 +21,7 @@ spec:
                   number: 3210
 
           - path: "/2"
+            pathType: Prefix
             backend:
               service:
                 name: service2
